@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IETECI - Matrículas</title>
+    <link rel="stylesheet" href="css/Estilos.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <img src="img/Logo.png" alt="Logo IETECI" class="logo-nav">
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="Noticias.html">Noticias</a></li>
+            <li><a href="Organizacion.html">Organización</a></li>
+            <li><a href="matriculas.html">Matrículas</a></li>
+        </ul>
+    </nav>
+    
+    <main class="container">
+        
+        <section id="matriculas-content">
+            <h2 class="form-main-title">Proceso de Matrículas</h2>
+            <p class="form-main-description">Inicie su proceso de inscripción con nosotros. ¡Estamos emocionados de tenerlo en nuestra familia educativa!</p>
+
+            <div class="form-container-card" id="form-container-card">
+                <form id="matricula-form" onsubmit="handleFormSubmission(event)" action="#" method="post" enctype="multipart/form-data">
+                    
+                    <fieldset class="form-section">
+                        <legend>Información del Estudiante</legend>
+                        <div class="form-group">
+                            <label for="nombre-estudiante">Nombre Completo:</label>
+                            <input type="text" id="nombre-estudiante" name="nombre-estudiante" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="doc-estudiante">Número de Documento:</label>
+                            <input type="text" id="doc-estudiante" name="doc-estudiante" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="fecha-nacimiento">Fecha de Nacimiento:</label>
+                            <input type="date" id="fecha-nacimiento" name="fecha-nacimiento" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="grado">Grado al que Aspira:</label>
+                            <input type="text" id="grado" name="grado" required>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="form-section">
+                        <legend>Información del Acudiente</legend>
+                        <div class="form-group">
+                            <label for="nombre-acudiente">Nombre Completo:</label>
+                            <input type="text" id="nombre-acudiente" name="nombre-acudiente" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="doc-acudiente">Número de Documento:</label>
+                            <input type="text" id="doc-acudiente" name="doc-acudiente" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email-acudiente">Correo Electrónico:</label>
+                            <input type="email" id="email-acudiente" name="email-acudiente" required>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="form-section">
+                        <legend>Documentos Requeridos</legend>
+                        <div class="form-group file-group">
+                            <label for="doc-registro">Registro Civil de Nacimiento:</label>
+                            <input type="file" id="doc-registro" name="doc-registro" accept=".pdf, .png, .jpeg" required>
+                        </div>
+                        <div class="form-group file-group">
+                            <label for="doc-tarjeta">Tarjeta de Identidad (si aplica):</label>
+                            <input type="file" id="doc-tarjeta" name="doc-tarjeta" accept=".pdf, .png, .jpeg">
+                        </div>
+                        <div class="form-group file-group">
+                            <label for="doc-cert-estudios">Certificado de Estudios del Año Anterior:</label>
+                            <input type="file" id="doc-cert-estudios" name="doc-cert-estudios" accept=".pdf, .png, .jpeg" required>
+                        </div>
+                    </fieldset>
+
+                    <div class="button-container">
+                        <button type="submit" class="submit-button">Enviar Formulario</button>
+                    </div>
+                </form>
+            </div>
+
+            <div id="success-message" class="success-message">
+                <p>¡Formulario de matrícula enviado con éxito!</p>
+                <p>Nos pondremos en contacto con usted para continuar el proceso.</p>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 IETECI. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        function handleFormSubmission(event) {
+            event.preventDefault(); // Evita que la página se recargue
+
+            // Oculta el formulario
+            document.getElementById('form-container-card').style.display = 'none';
+
+            // Muestra el mensaje de éxito
+            document.getElementById('success-message').style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>

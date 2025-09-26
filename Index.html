@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IETECI - Palmar de Varela</title>
+    <link rel="icon" type="image/png" href="img/favicon.png"> <link rel="stylesheet" href="css/Estilos.css"> </head>
+<body>
+
+    <nav class="navbar">
+        <img src="img/logo.png" alt="Logo IETECI" class="logo-nav"> <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="Noticias.html">Noticias</a></li>
+            <li><a href="Organizacion.html">Organización</a></li>
+            <li><a href="matriculas.html">Matrículas</a></li>
+        </ul>
+    </nav>
+        
+    <header class="header">
+        <img src="img/Colegio.jpeg" alt="Imagen representativa del colegio IETECI" class="header-image"> <h1>Portal Educativo IETECI</h1>
+        <p>Formando estudiantes para el futuro</p>
+    </header>
+
+    <main class="container">
+            
+        <section id="presentacion" class="section">
+            <h2>Presentación</h2>
+            <p>La IETECI (Institución Educativa Técnica Comercial e Industrial) es un plantel educativo situado en Palmar de Varela, Atlántico, Colombia. Se destaca por brindar una formación completa que integra lo académico con la preparación técnica en los campos comercial e industrial.</p>
+            <p>En esta página web se da a conocer información importante del colegio, aqui los estudiantes y padres de familia consultan las noticias y eventos del colegio. De esta forma, se busca integrar en un solo espacio recursos de información y apoyo para la comunidad educativa.</p>
+            <p>Además, para facilitar el acceso a nuestra institución, hemos habilitado un nuevo proceso de matrículas en línea. Desde nuestra sección de matrículas, los interesados pueden diligenciar el formulario y adjuntar los documentos necesarios de manera rápida y segura. Con este nuevo sistema, buscamos agilizar el proceso de inscripción y ofrecer una mejor experiencia a las familias que desean unirse a nuestra comunidad.</p>
+        </section>
+
+
+        <section id="mision-vision" class="section">
+            <h2>Misión y Visión</h2>
+            <div class="mision-vision-container">
+                <div class="mision-vision-item">
+                    <h3>Misión</h3>
+                    <p>Formar ciudadanos competentes, íntegros y comprometidos con el desarrollo sostenible de su comunidad, a través de una educación técnica de calidad que promueva la creatividad, el emprendimiento y el pensamiento crítico, fomentando así una sociedad más justa y equitativa.</p>
+                </div>
+                <div class="mision-vision-item">
+                    <h3>Visión</h3>
+                    <p>Ser la Institución Educativa Inclusiva, reconocida por articular un escenario de gestión escolar participativa, garante del derecho a la educación con calidad, caracterizada por el profesionalismo de su equipo de trabajo y por hacer de nuestros estudiantes individuos transformadores de la sociedad.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="manual" class="section">
+            <h2>Manual de Convivencia</h2>
+            <p>Puedes ver el manual de convivencia directamente aquí:</p>
+            <div class="pdf-container">
+                <embed src="Docs/MANUAL_IETECI_2024_DEF.pdf" type="application/pdf" width="100%" height="600px">
+            </div>
+        </section>
+        
+        <section id="comentarios" class="section">
+            <h2>Deja tu Comentario</h2>
+            <p>Esta es un área interactiva en la que la comunidad (estudiantes, padres, etc.) puede dejar un mensaje o una opinión pública sobre el colegio. Su objetivo es fomentar la participación y crear un sentido de comunidad</p>
+            <form id="comment-form" class="comment-form">
+                <div class="comment-input-area">
+                    <input type="text" id="comment-name" name="comment-name" placeholder="Tu nombre" required>
+                    <textarea id="comment-text" name="comment-text" rows="2" placeholder="Añade un comentario público..." required></textarea>
+                </div>
+                <div class="button-container">
+                    <button type="submit" class="submit-button">Comentar</button>
+                </div>
+            </form>
+            <div class="comments-list">
+                <h3>Comentarios recientes</h3>
+                </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 IETECI. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        document.getElementById('comment-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('comment-name').value;
+            const comment = document.getElementById('comment-text').value;
+
+            const newCommentDiv = document.createElement('div');
+            newCommentDiv.classList.add('comment-item');
+
+            const initial = name.charAt(0).toUpperCase();
+
+            newCommentDiv.innerHTML = `
+                <div class="comment-avatar">${initial}</div>
+                <div class="comment-content-container">
+                    <div class="comment-info">
+                        <span class="comment-author">${name}</span>
+                        <span class="comment-timestamp">hace un momento</span>
+                    </div>
+                    <p class="comment-text">${comment}</p>
+                </div>
+            `;
+
+            const commentsList = document.querySelector('.comments-list');
+            commentsList.append(newCommentDiv); // <--- CORRECCIÓN CLAVE: de prepend() a append()
+
+            document.getElementById('comment-name').value = '';
+            document.getElementById('comment-text').value = '';
+        });
+    </script>
+
+</body>
+</html>
